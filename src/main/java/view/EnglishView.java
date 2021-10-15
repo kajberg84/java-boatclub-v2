@@ -34,6 +34,11 @@ public class EnglishView implements View {
     }
   }
 
+  /**
+   * Returns an action.
+
+   * @return The action represented by a pressed character.
+   */
   public Action promptForAction() {
     int input = getInput();
 
