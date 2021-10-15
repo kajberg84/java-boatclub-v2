@@ -5,6 +5,9 @@ package view;
  */
 public interface View {
 
+  /**
+   * Represents an action.
+   */
   public enum Action {
     PLAY,
     HIT,
