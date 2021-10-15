@@ -34,6 +34,24 @@ public class EnglishView implements View {
     }
   }
 
+  public Action promptForAction() {
+    int input = getInput();
+
+    switch (input) {
+      case('p'):
+        return Action.PLAY;
+      case('h'):
+        return Action.HIT;
+      case('s'):
+        return Action.STAND;
+      case('q'):
+        return Action.QUIT;
+      default:
+        break;
+    }
+    return Action.None;
+  }
+
   public void displayCard(model.Card card) {
     System.out.println("" + card.getValue() + " of " + card.getColor());
   }

@@ -2,6 +2,7 @@ package controller;
 
 import model.Game;
 import view.View;
+import view.View.Action;
 
 
 /**
@@ -26,16 +27,20 @@ public class Player {
       view.displayGameOver(game.isDealerWinner());
     }
 
-    int input = view.getInput();
+    return userAction(game, view);
+  }
 
-    if (input == 'p') {
+  private boolean userAction(Game game, View view) {
+    Action action = view.promptForAction();
+
+    if (action == Action.PLAY) {
       game.newGame();
-    } else if (input == 'h') {
+    } else if (action == Action.HIT) {
       game.hit();
-    } else if (input == 's') {
+    } else if (action == Action.STAND) {
       game.stand();
     }
 
-    return input != 'q';
+    return action != Action.QUIT;
   }
 }
