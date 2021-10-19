@@ -4,6 +4,7 @@ import model.rules.HitStrategy;
 import model.rules.NewGameStrategy;
 import model.rules.RulesFactory;
 import model.rules.WinStrategy;
+
 /**
  * Represents a dealer player that handles the deck of cards and runs the game using rules.
  */

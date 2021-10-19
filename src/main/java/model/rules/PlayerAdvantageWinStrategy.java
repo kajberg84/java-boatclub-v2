@@ -3,6 +3,9 @@ package model.rules;
 import model.Dealer;
 import model.Player;
 
+/**
+ * Player wins if equal score.
+ */
 public class PlayerAdvantageWinStrategy implements WinStrategy {
 
   @Override
