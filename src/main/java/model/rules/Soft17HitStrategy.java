@@ -4,9 +4,17 @@ import model.Card;
 import model.Card.Value;
 import model.Player;
 
+/**
+ * Represents a Soft17 Hit Strategy.
+ */
 public class Soft17HitStrategy implements HitStrategy {
   private static final int hitLimit = 17;
 
+  /**
+   * Compare dealer hand to current rules.
+
+   * @param dealer The dealer.
+   */
   public boolean doHit(Player dealer) {
     if (dealer.calcScore() == hitLimit) {
       return hasAce(dealer.getHand());
