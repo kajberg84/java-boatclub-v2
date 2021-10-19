@@ -1,7 +1,5 @@
 package model;
 
-import model.rules.HitStrategy;
-import model.rules.RulesFactory;
 import model.rules.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -63,6 +61,55 @@ public class BlackJackTest {
     assertEquals(17, dealer.calcScore(), "Dealer should have a score of 17");
   }
 
+  @Test
+  public void winnerTest_1() {
+    DummyRulesFactory rulesFactory = new DummyRulesFactory();
+    DummyDealer dealer = new DummyDealer(rulesFactory);
+    DummyPlayer player = new DummyPlayer();
+
+    Card.Mutable c1 = new Card.Mutable(Card.Color.Hearts, Card.Value.Ten);
+    Card.Mutable c2 = new Card.Mutable(Card.Color.Hearts, Card.Value.Eight);
+    Card.Mutable c3 = new Card.Mutable(Card.Color.Spades, Card.Value.Ten);
+    Card.Mutable c4 = new Card.Mutable(Card.Color.Spades, Card.Value.Eight);
+
+    c1.show(true);
+    dealer.dealCard(c1);
+    c2.show(true);
+    dealer.dealCard(c2);
+    c3.show(true);
+    player.dealCard(c3);
+    c4.show(true);
+    player.dealCard(c4);
+
+    WinStrategy winRule = rulesFactory.getWinRule();
+
+    assertEquals(false, winRule.isDealerWinner(dealer, player), "Player should win when equal score.");
+  }
+
+  @Test
+  public void winnerTest_2() {
+    DummyRulesFactory_2 rulesFactory = new DummyRulesFactory_2();
+    DummyDealer dealer = new DummyDealer(rulesFactory);
+    DummyPlayer player = new DummyPlayer();
+
+    Card.Mutable c1 = new Card.Mutable(Card.Color.Hearts, Card.Value.Ten);
+    Card.Mutable c2 = new Card.Mutable(Card.Color.Hearts, Card.Value.Eight);
+    Card.Mutable c3 = new Card.Mutable(Card.Color.Spades, Card.Value.Ten);
+    Card.Mutable c4 = new Card.Mutable(Card.Color.Spades, Card.Value.Eight);
+
+    c1.show(true);
+    dealer.dealCard(c1);
+    c2.show(true);
+    dealer.dealCard(c2);
+    c3.show(true);
+    player.dealCard(c3);
+    c4.show(true);
+    player.dealCard(c4);
+
+    WinStrategy winRule = rulesFactory.getWinRule();
+
+    assertEquals(true, winRule.isDealerWinner(dealer, player), "Dealer should win when equal score.");
+  }
   class DummyDealer extends Dealer {
 
     DummyDealer(RulesFactory rulesFactory) {
@@ -70,10 +117,35 @@ public class BlackJackTest {
     }
   }
 
+  class DummyPlayer extends Player {
+
+    DummyPlayer() {
+
+    }
+  }
+
   class DummyRulesFactory extends RulesFactory {
 
     @Override public HitStrategy getHitRule() {
       return new Soft17HitStrategy();
+    }
+
+    @Override
+    public WinStrategy getWinRule() {
+      return new PlayerAdvantageWinStrategy();
+    }
+  }
+
+  class DummyRulesFactory_2 extends RulesFactory {
+
+    @Override
+    public HitStrategy getHitRule() {
+      return new Soft17HitStrategy();
+    }
+
+    @Override
+    public WinStrategy getWinRule() {
+      return new DealerAdvantageWinStrategy();
     }
   }
 
