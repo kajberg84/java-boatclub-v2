@@ -37,7 +37,8 @@ public class Dealer extends Player {
       deck = new Deck();
       clearHand();
       player.clearHand();
-      return newGameRule.newGame(deck, this, player);
+      // return newGameRule.newGame(deck, this, player);
+      return newGameRule.newGame(this, player);
     }
     return false;
   }
@@ -50,7 +51,7 @@ public class Dealer extends Player {
    */
   public boolean hit(Player player) {
     if (deck != null && player.calcScore() < maxScore && !isGameOver()) {
-      dealCard(player);
+      dealNewCard(player, true);
       return true;
     }
     return false;
@@ -65,16 +66,16 @@ public class Dealer extends Player {
     if (deck != null) {
       showHand();
       while (hitRule.doHit(this)) {
-        dealCard(this);
+        dealNewCard(this, true);
         return true;
       }
     }
     return false;
   }
 
-  private void dealCard(Player player) {
+  public void dealNewCard(Player player, Boolean isVisible) {
     Card.Mutable c = deck.getCard();
-    c.show(true);
+    c.show(isVisible);
     player.dealCard(c);
   }
 
