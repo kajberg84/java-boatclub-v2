@@ -37,7 +37,6 @@ public class Dealer extends Player {
       deck = new Deck();
       clearHand();
       player.clearHand();
-      // return newGameRule.newGame(deck, this, player);
       return newGameRule.newGame(this, player);
     }
     return false;
