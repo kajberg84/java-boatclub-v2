@@ -37,7 +37,7 @@ public class Dealer extends Player {
       deck = new Deck();
       clearHand();
       player.clearHand();
-      return newGameRule.newGame(deck, this, player);
+      return newGameRule.newGame(this, player);
     }
     return false;
   }
@@ -50,14 +50,38 @@ public class Dealer extends Player {
    */
   public boolean hit(Player player) {
     if (deck != null && player.calcScore() < maxScore && !isGameOver()) {
-      Card.Mutable c;
-      c = deck.getCard();
-      c.show(true);
-      player.dealCard(c);
-
+      dealNewCard(player, true);
       return true;
     }
     return false;
+  }
+
+  /**
+   * The player has chosen to take no more cards, it is the dealer's turn.
+
+   * @return true if the dealer could get a new card, false otherwise.
+   */
+  public boolean stand() {
+    if (deck != null) {
+      showHand();
+      while (hitRule.doHit(this)) {
+        dealNewCard(this, true);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * Deals a new card to a player or dealer. Card can be visible or hidden.
+
+   * @param player The player (player or dealer) that should be dealt a new card.
+   * @param isVisible The visibility status of the card.
+   */
+  public void dealNewCard(Player player, Boolean isVisible) {
+    Card.Mutable c = deck.getCard();
+    c.show(isVisible);
+    player.dealCard(c);
   }
 
   /**
@@ -78,24 +102,6 @@ public class Dealer extends Player {
   public boolean isGameOver() {
     if (deck != null && hitRule.doHit(this) != true) {
       return true;
-    }
-    return false;
-  }
-
-  /**
-   * The player has chosen to take no more cards, it is the dealer's turn.
-   */
-  public boolean stand() {
-    if (deck != null) {
-      showHand();
-      while (hitRule.doHit(this)) {
-        Card.Mutable c;
-        c = deck.getCard();
-        c.show(true);
-        this.dealCard(c);
-
-        return true;
-      }
     }
     return false;
   }
