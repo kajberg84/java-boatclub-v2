@@ -14,6 +14,7 @@ public class Dealer extends Player {
   private NewGameStrategy newGameRule;
   private HitStrategy hitRule;
   private WinStrategy winRule;
+
   /**
    * Initializing constructor.
 

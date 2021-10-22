@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 /**
  * Represents the entirety of the game. Acts as a Facade to the model.
  */
@@ -7,6 +9,7 @@ public class Game {
 
   private Dealer dealer;
   private Player player;
+  private ArrayList<NewCardObserver> subscribers;
 
   /**
    * Constructor that creates a new game instance with a dealer and player.
@@ -14,6 +17,21 @@ public class Game {
   public Game() {
     dealer = new Dealer(new model.rules.RulesFactory());
     player = new Player();
+    subscribers = new ArrayList<>();
+  }
+
+  public void addSubscriber(NewCardObserver subscriber) {
+    subscribers.add(subscriber);
+  }
+
+  public void removeSubscriber(NewCardObserver subscriber) {
+    subscribers.remove(subscriber);
+  }
+
+  private void notifySubscribersOnNewCard() {
+    for (NewCardObserver s : subscribers) {
+      s.newCard();
+    }
   }
 
   /**
@@ -49,7 +67,12 @@ public class Game {
    * @return True if the player got a new card.
    */
   public boolean hit() {
-    return dealer.hit(player);
+    if (dealer.hit(player)) {
+      notifySubscribersOnNewCard();
+      return true;
+    }
+    return false;
+    // return dealer.hit(player);
   }
 
   /**
@@ -58,7 +81,12 @@ public class Game {
    * @return True if the dealer has the initiaive.
    */
   public boolean stand() {
-    return dealer.stand();
+    if (dealer.stand()) {
+      notifySubscribersOnNewCard();
+      return true;
+    }
+    return false;
+    // return dealer.stand();
   }
 
   /**
@@ -96,5 +124,4 @@ public class Game {
   public int getPlayerScore() {
     return player.calcScore();
   }
-
 }

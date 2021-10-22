@@ -19,9 +19,9 @@ public class App {
     Game g = new Game();
     View v = new EnglishView(); // new SwedishView();
     // View v = new SwedishView();
-    Player ctrl = new Player();
+    Player ctrl = new Player(v, g);
 
-    while (ctrl.play(g, v)) {
+    while (ctrl.play()) {
 
     }
   }
