@@ -50,14 +50,32 @@ public class Dealer extends Player {
    */
   public boolean hit(Player player) {
     if (deck != null && player.calcScore() < maxScore && !isGameOver()) {
-      Card.Mutable c;
-      c = deck.getCard();
-      c.show(true);
-      player.dealCard(c);
-
+      dealCard(player);
       return true;
     }
     return false;
+  }
+
+  /**
+   * The player has chosen to take no more cards, it is the dealer's turn.
+
+   * @return true if the dealer could get a new card, false otherwise.
+   */
+  public boolean stand() {
+    if (deck != null) {
+      showHand();
+      while (hitRule.doHit(this)) {
+        dealCard(this);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private void dealCard(Player player) {
+    Card.Mutable c = deck.getCard();
+    c.show(true);
+    player.dealCard(c);
   }
 
   /**
@@ -78,24 +96,6 @@ public class Dealer extends Player {
   public boolean isGameOver() {
     if (deck != null && hitRule.doHit(this) != true) {
       return true;
-    }
-    return false;
-  }
-
-  /**
-   * The player has chosen to take no more cards, it is the dealer's turn.
-   */
-  public boolean stand() {
-    if (deck != null) {
-      showHand();
-      while (hitRule.doHit(this)) {
-        Card.Mutable c;
-        c = deck.getCard();
-        c.show(true);
-        this.dealCard(c);
-
-        return true;
-      }
     }
     return false;
   }
