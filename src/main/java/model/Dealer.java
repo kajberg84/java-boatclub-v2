@@ -72,6 +72,12 @@ public class Dealer extends Player {
     return false;
   }
 
+  /**
+   * Deals a new card to a player or dealer. Card can be visible or hidden.
+
+   * @param player The player (player or dealer) that should be dealt a new card.
+   * @param isVisible The visibility status of the card.
+   */
   public void dealNewCard(Player player, Boolean isVisible) {
     Card.Mutable c = deck.getCard();
     c.show(isVisible);
