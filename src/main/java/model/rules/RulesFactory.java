@@ -11,8 +11,8 @@ public class RulesFactory {
    * @return The rule to use
    */
   public HitStrategy getHitRule() {
-    // return new BasicHitStrategy();
     return new Soft17HitStrategy();
+    // return new BasicHitStrategy();
   }
 
   /**
@@ -21,8 +21,8 @@ public class RulesFactory {
    * @return The rule to use.
    */
   public NewGameStrategy getNewGameRule() {
-    // return new AmericanNewGameStrategy();
     return new InternationalNewGameStrategy();
+    // return new AmericanNewGameStrategy();
   }
 
   /**

@@ -46,7 +46,7 @@ public class Dealer extends Player {
   /**
    * Starts a new game if the game is not currently under way.
 
-   * @param player The player to play agains.
+   * @param player The player to play against.
    * @return True if the game could be started.
    */
   public boolean newGame(Player player) {
@@ -63,7 +63,7 @@ public class Dealer extends Player {
    * Gives the player one more card if possible. I.e. the player hits.
 
    * @param player The player to give a card to.
-   * @return true if the player could get a new card, false otherwise.
+   * @return True if the player could get a new card, false otherwise.
    */
   public boolean hit(Player player) {
     if (deck != null && player.calcScore() < maxScore && !isGameOver()) {
@@ -76,7 +76,7 @@ public class Dealer extends Player {
   /**
    * The player has chosen to take no more cards, it is the dealer's turn.
 
-   * @return true if the dealer could get a new card, false otherwise.
+   * @return True if the dealer could get a new card, false otherwise.
    */
   public boolean stand() {
     if (deck != null) {
@@ -105,7 +105,7 @@ public class Dealer extends Player {
   /**
    * Checks if the dealer is the winner compared to a player.
 
-   * @param player The player to check agains.
+   * @param player The player to check against.
    * @return True if the dealer is the winner, false if the player is the winner.
    */
   public boolean isDealerWinner(Player player) {

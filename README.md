@@ -15,6 +15,9 @@
   - Console language can be changed manually in [App.java](src/main/java/controller/App.java)
 - When the application is running you can play the game by choosing among the presented menu options.
 
+## Implemented game variations
+- The rule for who wins the game can be either DealerAdvantage or PlayerAdvantage on equal score.
+
 ## :memo: Design Overview
 [Design Document](design.md)
 

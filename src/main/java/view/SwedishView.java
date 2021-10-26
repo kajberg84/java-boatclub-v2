@@ -21,7 +21,7 @@ public class SwedishView implements View {
   /**
    * Returns pressed characters from the keyboard.
 
-   * @return the pressed character.
+   * @return The pressed character.
    */
   public int getInput() {
     try {

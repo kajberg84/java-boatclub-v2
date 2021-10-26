@@ -27,7 +27,7 @@ public class Game {
   /**
    * Checks if the game has ended.
 
-   * @return true if the game has ended.
+   * @return True if the game has ended.
    */
   public boolean isGameOver() {
     return dealer.isGameOver();
@@ -43,7 +43,7 @@ public class Game {
   }
 
   /**
-   * Stars a new game.
+   * Starts a new game.
 
    * @return True if a new game could be started.
    */
@@ -90,7 +90,7 @@ public class Game {
   /**
    * Returns the score of the dealer's hand.
 
-   * @return the score.
+   * @return The score.
    */
   public int getDealerScore() {
     return dealer.calcScore();
@@ -99,7 +99,7 @@ public class Game {
   /**
    * Returns the score of the player's hand.
 
-   * @return the score.
+   * @return The score.
    */
   public int getPlayerScore() {
     return player.calcScore();
