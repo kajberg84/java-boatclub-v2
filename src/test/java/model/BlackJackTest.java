@@ -110,6 +110,7 @@ public class BlackJackTest {
 
     assertEquals(true, winRule.isDealerWinner(dealer, player), "Dealer should win when equal score.");
   }
+  
   class DummyDealer extends Dealer {
 
     DummyDealer(RulesFactory rulesFactory) {
@@ -126,7 +127,8 @@ public class BlackJackTest {
 
   class DummyRulesFactory extends RulesFactory {
 
-    @Override public HitStrategy getHitRule() {
+    @Override 
+    public HitStrategy getHitRule() {
       return new Soft17HitStrategy();
     }
 

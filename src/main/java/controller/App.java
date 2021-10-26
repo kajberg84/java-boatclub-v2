@@ -15,13 +15,14 @@ public class App {
   * @param args Not used.
   */
   public static void main(String[] args) {
-
     Game g = new Game();
     View v = new EnglishView(); // new SwedishView();
     // View v = new SwedishView();
-    Player ctrl = new Player();
+    Player ctrl = new Player(v, g);
 
-    while (ctrl.play(g, v)) {
+    v.displayWelcomeMessage();
+    
+    while (ctrl.play()) {
 
     }
   }

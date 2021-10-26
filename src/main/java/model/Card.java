@@ -73,7 +73,7 @@ public class Card {
   }
 
   /**
-   * returns the value of the card or hidden if the card is face down.
+   * Returns the value of the card or hidden if the card is face down.
 
    * @return The card value.
    */
@@ -83,6 +83,4 @@ public class Card {
     }
     return value;
   }
-
-  
 }

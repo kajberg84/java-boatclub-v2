@@ -45,16 +45,16 @@ public interface View {
   /**
    * Displays the cards and score of the player.
 
-   * @param hand the player's hand.
-   * @param score the player's score.
+   * @param hand The player's hand.
+   * @param score The player's score.
    */
   void displayPlayerHand(Iterable<model.Card> hand, int score);
 
   /**
    * Displays the cards and score of the dealer.
 
-   * @param hand the dealer's score.
-   * @param score the players's score.
+   * @param hand The dealer's score.
+   * @param score The players's score.
    */
   void displayDealerHand(Iterable<model.Card> hand, int score);
 

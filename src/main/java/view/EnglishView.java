@@ -1,7 +1,7 @@
 package view;
 
 /**
- * Implements an english console view.
+ * Implements an English console view.
  */
 public class EnglishView implements View {
 
@@ -13,13 +13,14 @@ public class EnglishView implements View {
       System.out.print("\n");
     }
     System.out.println("Hello Black Jack World");
+    System.out.println("----------------------");
     System.out.println("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
   }
 
   /**
    * Returns pressed characters from the keyboard.
 
-   * @return the pressed character.
+   * @return The pressed character.
    */
   public int getInput() {
     try {
@@ -90,6 +91,5 @@ public class EnglishView implements View {
     } else {
       System.out.println("You Won!");
     }
-
   }
 }
