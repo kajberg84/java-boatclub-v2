@@ -22,8 +22,7 @@ public class Dealer extends Player {
 
    * @param rulesFactory A factory that creates the rules to use.
    */
-  public Dealer() {
-    RulesFactory rulesFactory = new RulesFactory();
+  public Dealer(RulesFactory rulesFactory) {
     newGameRule = rulesFactory.getNewGameRule();
     hitRule = rulesFactory.getHitRule();
     winRule = rulesFactory.getWinRule();

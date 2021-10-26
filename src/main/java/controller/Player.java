@@ -16,6 +16,7 @@ public class Player implements NewCardObserver {
   public Player(View ui, Game g) {
     view = ui;
     game = g;
+    game.addSubscriber(this);
   }
 
   /**

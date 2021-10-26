@@ -1,6 +1,5 @@
 package controller;
 
-import model.Dealer;
 import model.Game;
 import view.EnglishView;
 // import view.SwedishView;
@@ -16,13 +15,13 @@ public class App {
   * @param args Not used.
   */
   public static void main(String[] args) {
-    Dealer d = new Dealer();
-    Game g = new Game(d);
+    Game g = new Game();
     View v = new EnglishView(); // new SwedishView();
     // View v = new SwedishView();
     Player ctrl = new Player(v, g);
-    d.addSubscriber(ctrl);
+
     v.displayWelcomeMessage();
+    
     while (ctrl.play()) {
 
     }
