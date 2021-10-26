@@ -10,7 +10,7 @@ public class BlackJackTest {
   @Test
   public void dealerTest_1() {
     DummyRulesFactory rulesFactory = new DummyRulesFactory();
-    DummyDealer dealer = new DummyDealer(rulesFactory);
+    DummyDealer dealer = new DummyDealer();
 
     Card.Mutable c1 = new Card.Mutable(Card.Color.Hearts, Card.Value.Ace);
     Card.Mutable c2 = new Card.Mutable(Card.Color.Hearts, Card.Value.Six);
@@ -28,7 +28,7 @@ public class BlackJackTest {
   @Test
   public void dealerTest_2() {
     DummyRulesFactory rulesFactory = new DummyRulesFactory();
-    DummyDealer dealer = new DummyDealer(rulesFactory);
+    DummyDealer dealer = new DummyDealer();
 
     Card.Mutable c1 = new Card.Mutable(Card.Color.Spades, Card.Value.Ten);
     Card.Mutable c2 = new Card.Mutable(Card.Color.Clubs, Card.Value.Seven);
@@ -44,8 +44,8 @@ public class BlackJackTest {
 
   @Test
   public void dealerTest_3() {
-    DummyRulesFactory rulesFactory = new DummyRulesFactory();
-    DummyDealer dealer = new DummyDealer(rulesFactory);
+    // DummyRulesFactory rulesFactory = new DummyRulesFactory();
+    DummyDealer dealer = new DummyDealer();
 
     Card.Mutable c1 = new Card.Mutable(Card.Color.Hearts, Card.Value.Ace);
     Card.Mutable c2 = new Card.Mutable(Card.Color.Hearts, Card.Value.Six);
@@ -64,7 +64,7 @@ public class BlackJackTest {
   @Test
   public void winnerTest_1() {
     DummyRulesFactory rulesFactory = new DummyRulesFactory();
-    DummyDealer dealer = new DummyDealer(rulesFactory);
+    DummyDealer dealer = new DummyDealer();
     DummyPlayer player = new DummyPlayer();
 
     Card.Mutable c1 = new Card.Mutable(Card.Color.Hearts, Card.Value.Ten);
@@ -89,7 +89,7 @@ public class BlackJackTest {
   @Test
   public void winnerTest_2() {
     DummyRulesFactory_2 rulesFactory = new DummyRulesFactory_2();
-    DummyDealer dealer = new DummyDealer(rulesFactory);
+    DummyDealer dealer = new DummyDealer();
     DummyPlayer player = new DummyPlayer();
 
     Card.Mutable c1 = new Card.Mutable(Card.Color.Hearts, Card.Value.Ten);
@@ -112,8 +112,8 @@ public class BlackJackTest {
   }
   class DummyDealer extends Dealer {
 
-    DummyDealer(RulesFactory rulesFactory) {
-      super(rulesFactory);
+    DummyDealer() {
+      super();
     }
   }
 
