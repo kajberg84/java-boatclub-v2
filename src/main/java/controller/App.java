@@ -22,7 +22,7 @@ public class App {
     // View v = new SwedishView();
     Player ctrl = new Player(v, g);
     d.addSubscriber(ctrl);
-
+    v.displayWelcomeMessage();
     while (ctrl.play()) {
 
     }

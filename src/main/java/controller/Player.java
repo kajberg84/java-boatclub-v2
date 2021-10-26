@@ -26,7 +26,7 @@ public class Player implements NewCardObserver {
    * @return True as long as the game should continue.
    */
   public boolean play() {
-    view.displayWelcomeMessage();
+    // view.displayWelcomeMessage();
 
     // view.displayDealerHand(game.getDealerHand(), game.getDealerScore());
     // view.displayPlayerHand(game.getPlayerHand(), game.getPlayerScore());
@@ -54,6 +54,12 @@ public class Player implements NewCardObserver {
 
   @Override
   public void newCard() {
+    try {
+      Thread.sleep(1500);
+    } catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+    }
+    view.displayWelcomeMessage();
     view.displayDealerHand(game.getDealerHand(), game.getDealerScore());
     view.displayPlayerHand(game.getPlayerHand(), game.getPlayerScore()); 
   }
