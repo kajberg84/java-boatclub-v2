@@ -13,6 +13,12 @@ public class Player implements NewCardObserver {
   View view;
   Game game;
 
+  /**
+   * Constructor that creates a player controller instance with a view and game facade.
+
+   * @param ui The view.
+   * @param g The game facade.
+   */
   public Player(View ui, Game g) {
     view = ui;
     game = g;
@@ -22,16 +28,9 @@ public class Player implements NewCardObserver {
   /**
    * Runs the play use case.
 
-   * @param game The game state.
-   * @param view The view to use.
    * @return True as long as the game should continue.
    */
   public boolean play() {
-    // view.displayWelcomeMessage();
-
-    // view.displayDealerHand(game.getDealerHand(), game.getDealerScore());
-    // view.displayPlayerHand(game.getPlayerHand(), game.getPlayerScore());
-
     if (game.isGameOver()) {
       view.displayGameOver(game.isDealerWinner());
     }
