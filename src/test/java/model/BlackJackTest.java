@@ -125,7 +125,7 @@ public class BlackJackTest {
     }
   }
 
-  class DummyRulesFactory extends RulesFactory {
+  class DummyRulesFactory implements RulesFactory {
 
     @Override 
     public HitStrategy getHitRule() {
@@ -136,9 +136,15 @@ public class BlackJackTest {
     public WinStrategy getWinRule() {
       return new PlayerAdvantageWinStrategy();
     }
+
+    @Override
+    public NewGameStrategy getNewGameRule() {
+      return new AmericanNewGameStrategy();
+    }
+    
   }
 
-  class DummyRulesFactory_2 extends RulesFactory {
+  class DummyRulesFactory_2 implements RulesFactory {
 
     @Override
     public HitStrategy getHitRule() {
@@ -149,6 +155,10 @@ public class BlackJackTest {
     public WinStrategy getWinRule() {
       return new DealerAdvantageWinStrategy();
     }
-  }
 
+    @Override
+    public NewGameStrategy getNewGameRule() {
+      return new AmericanNewGameStrategy();
+    }
+  }
 }

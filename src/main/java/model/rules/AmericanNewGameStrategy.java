@@ -3,7 +3,7 @@ package model.rules;
 import model.Dealer;
 import model.Player;
 
-class AmericanNewGameStrategy implements NewGameStrategy {
+public class AmericanNewGameStrategy implements NewGameStrategy {
 
   public boolean newGame(Dealer dealer, Player player) {
     dealer.dealNewCard(player, true);
