@@ -1,5 +1,8 @@
 package model.rules;
 
+/**
+ * A rules factory creating the rules Basic Hit, International New Game and Dealer Advantage.
+ */
 public class InternationalBasicDealerAdvantageFactory implements RulesFactory {
 
   @Override

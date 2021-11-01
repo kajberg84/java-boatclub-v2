@@ -1,5 +1,8 @@
 package model.rules;
 
+/**
+ * A rules factory creating the rules Soft17, American New Game and Player Advantage.
+ */
 public class AmericanSoft17PlayerAdvantageFactory implements RulesFactory {
 
   @Override
