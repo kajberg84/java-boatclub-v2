@@ -4,7 +4,7 @@ import model.Dealer;
 import model.Player;
 import model.RulesVisitor;
 
-class InternationalNewGameStrategy implements NewGameStrategy {
+public class InternationalNewGameStrategy implements NewGameStrategy {
 
   public boolean newGame(Dealer dealer, Player player) {
     dealer.dealNewCard(player, true);
@@ -17,11 +17,5 @@ class InternationalNewGameStrategy implements NewGameStrategy {
   @Override
   public void accept(RulesVisitor visitor) {
     visitor.visit(this);
-  }
-
-  @Override
-  public String getRuleName() {
-    String name = "International New Game";
-    return name;
   }
 }

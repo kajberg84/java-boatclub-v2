@@ -29,10 +29,4 @@ public class AmericanNewGameStrategy implements NewGameStrategy {
   public void accept(RulesVisitor visitor) {
     visitor.visit(this);
   }
-
-  @Override
-  public String getRuleName() {
-    String name = "American New Game";
-    return name;
-  }
 }
