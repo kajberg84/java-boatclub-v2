@@ -3,6 +3,7 @@ package model.rules;
 import model.Card;
 import model.Card.Value;
 import model.Player;
+import model.RulesVisitor;
 
 /**
  * Represents a Soft17 Hit Strategy.
@@ -29,5 +30,16 @@ public class Soft17HitStrategy implements HitStrategy {
       }
     }
     return false;
+  }
+
+  @Override
+  public void accept(RulesVisitor visitor) {
+    visitor.visit(this);
+  }
+
+  @Override
+  public String getRuleName() {
+    String name = "Soft 17";
+    return name;
   }
 }

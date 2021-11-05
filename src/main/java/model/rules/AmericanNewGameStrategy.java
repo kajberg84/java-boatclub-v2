@@ -2,6 +2,7 @@ package model.rules;
 
 import model.Dealer;
 import model.Player;
+import model.RulesVisitor;
 
 /**
  * Represents American new game strategy.
@@ -22,5 +23,16 @@ public class AmericanNewGameStrategy implements NewGameStrategy {
     dealer.dealNewCard(dealer, false);
 
     return true;
+  }
+
+  @Override
+  public void accept(RulesVisitor visitor) {
+    visitor.visit(this);
+  }
+
+  @Override
+  public String getRuleName() {
+    String name = "American New Game";
+    return name;
   }
 }

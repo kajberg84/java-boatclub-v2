@@ -2,6 +2,8 @@ package controller;
 
 import model.Game;
 import model.NewCardObserver;
+import model.RulesVisitor;
+import view.RulesPrinterVisitor;
 import view.View;
 import view.View.Action;
 
@@ -12,6 +14,7 @@ import view.View.Action;
 public class Player implements NewCardObserver {
   View view;
   Game game;
+  RulesVisitor visitor = new RulesPrinterVisitor();
 
   /**
    * Constructor that creates a player controller instance with a view and game facade.
@@ -42,7 +45,7 @@ public class Player implements NewCardObserver {
     Action action = view.promptForAction();
 
     if (action == Action.PLAY) {
-      game.newGame();
+      game.newGame(visitor);
     } else if (action == Action.HIT) {
       game.hit();
     } else if (action == Action.STAND) {

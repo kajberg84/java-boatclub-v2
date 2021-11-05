@@ -49,7 +49,8 @@ public class Game {
 
    * @return True if a new game could be started.
    */
-  public boolean newGame() {
+  public boolean newGame(RulesVisitor visitor) {
+    dealer.accept(visitor);
     return dealer.newGame(player);
   }
 

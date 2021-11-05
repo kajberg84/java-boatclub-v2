@@ -2,6 +2,7 @@ package model.rules;
 
 import model.Dealer;
 import model.Player;
+import model.RulesVisitor;
 
 class InternationalNewGameStrategy implements NewGameStrategy {
 
@@ -11,5 +12,16 @@ class InternationalNewGameStrategy implements NewGameStrategy {
     dealer.dealNewCard(player, true);
 
     return true;
+  }
+
+  @Override
+  public void accept(RulesVisitor visitor) {
+    visitor.visit(this);
+  }
+
+  @Override
+  public String getRuleName() {
+    String name = "International New Game";
+    return name;
   }
 }

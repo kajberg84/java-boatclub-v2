@@ -6,7 +6,7 @@ import model.Player;
 /**
  * Rule interface that encapsulates who should win.
  */
-public interface WinStrategy {
+public interface WinStrategy extends RulesElement {
   final int maxScore = 21;
 
   /**
@@ -17,4 +17,6 @@ public interface WinStrategy {
    * @return True if the rule decided the dealer is winner.
    */
   boolean isDealerWinner(Dealer dealer, Player player);
+
+  String getRuleName();
 }

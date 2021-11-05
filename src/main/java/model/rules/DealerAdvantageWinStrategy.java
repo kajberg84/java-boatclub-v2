@@ -2,6 +2,7 @@ package model.rules;
 
 import model.Dealer;
 import model.Player;
+import model.RulesVisitor;
 
 /**
  * Dealer wins if equal score.
@@ -16,5 +17,16 @@ public class DealerAdvantageWinStrategy implements WinStrategy {
       return false;
     }
     return dealer.calcScore() >= player.calcScore();
+  }
+
+  @Override
+  public void accept(RulesVisitor visitor) {
+    visitor.visit(this);
+  }
+
+  @Override
+  public String getRuleName() {
+    String name = "Dealer Advantage";
+    return name;
   }
 }
