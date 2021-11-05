@@ -12,6 +12,6 @@ This is the detailed sequence diagram for the `Game.stand` method. This is what 
 ![Stand Sequence diagram](img/stand_seq.jpg)
 
 ## Updated Class Diagram
-This is the updated class diagram according to our changes. We have left out some dependencies for readability reasons - same as in the original **plus** the dependencies from Strategy-interfaces to Dealer and Player.
+This is the updated class diagram according to our changes. Some dependencies have been left out for readability reasons - same as in the original **plus** the dependencies from Strategy-interfaces to Dealer and Player.
 
-![Design Document](img/updated-class-diagram.jpeg)
+![Design Document](img/grade_3-class-diagram.jpeg)

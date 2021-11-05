@@ -1,4 +1,4 @@
-# :black_joker: A3 - BlackJack *(grade 2)*
+# :black_joker: A3 - BlackJack *(grade 3)*
 
 ## How to Build and Run the Application
 
@@ -11,20 +11,14 @@
 ## How to Use the Application
 
 - Before running the application: 
-  - Rules can be altered manually in [RulesFactory.java](src/main/java/model/rules/RulesFactory.java)
+  - Set of rules can be altered manually in [App.java](src/main/java/controller/App.java) by providing a rules factory
   - Console language can be changed manually in [App.java](src/main/java/controller/App.java)
 - When the application is running you can play the game by choosing among the presented menu options.
-
-## Implemented game variations
-- The rule for who wins the game can be either DealerAdvantage or PlayerAdvantage on equal score.
 
 ## :memo: Design Overview
 [Design Document](design.md)
 
 ---
 
-## :sparkles: Creators
-
-Kaj Berg <kb223aw@student.lnu.se>  
-Mirjam Arvidsson <margl08@student.lnu.se>  
+## :sparkles: Creator
 Rebecca Axelsson <ra223ai@student.lnu.se>
