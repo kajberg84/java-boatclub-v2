@@ -17,6 +17,4 @@ public interface WinStrategy extends RulesElement {
    * @return True if the rule decided the dealer is winner.
    */
   boolean isDealerWinner(Dealer dealer, Player player);
-
-  String getRuleName();
 }

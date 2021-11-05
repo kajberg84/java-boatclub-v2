@@ -15,6 +15,4 @@ public interface NewGameStrategy extends RulesElement {
    * @return True if the game could be started.
    */
   boolean newGame(Dealer dealer, Player player);
-
-  String getRuleName();
 }

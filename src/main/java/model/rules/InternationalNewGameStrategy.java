@@ -4,8 +4,14 @@ import model.Dealer;
 import model.Player;
 import model.RulesVisitor;
 
-class InternationalNewGameStrategy implements NewGameStrategy {
+/**
+ * Represents international rule for dealing cards in a new game.
+ */
+public class InternationalNewGameStrategy implements NewGameStrategy {
 
+  /**
+   * Deal cards when a new game is initiated.
+   */
   public boolean newGame(Dealer dealer, Player player) {
     dealer.dealNewCard(player, true);
     dealer.dealNewCard(dealer, true);
@@ -17,11 +23,5 @@ class InternationalNewGameStrategy implements NewGameStrategy {
   @Override
   public void accept(RulesVisitor visitor) {
     visitor.visit(this);
-  }
-
-  @Override
-  public String getRuleName() {
-    String name = "International New Game";
-    return name;
   }
 }

@@ -3,28 +3,28 @@ package controller;
 import model.Game;
 import model.NewCardObserver;
 import model.RulesVisitor;
-import view.RulesPrinterVisitor;
-import view.View;
-import view.View.Action;
+import view.BaseView;
 
 
 /**
  * Scenario controller for playing the game.
  */
 public class Player implements NewCardObserver {
-  View view;
-  Game game;
-  RulesVisitor visitor = new RulesPrinterVisitor();
+  private BaseView view;
+  private Game game;
+  private RulesVisitor visitor;
 
   /**
    * Constructor that creates a player controller instance with a view and game facade.
 
-   * @param ui The view.
-   * @param g The game facade.
+   * @param view The view.
+   * @param game The game facade.
+   * @param visitor The rules visitor.
    */
-  public Player(View ui, Game g) {
-    view = ui;
-    game = g;
+  public Player(BaseView view, Game game, RulesVisitor visitor) {
+    this.view = view;
+    this.game = game;
+    this.visitor = visitor;
     game.addSubscriber(this);
   }
 
@@ -41,18 +41,18 @@ public class Player implements NewCardObserver {
     return userAction(game, view);
   }
 
-  private boolean userAction(Game game, View view) {
-    Action action = view.promptForAction();
+  private boolean userAction(Game game, BaseView view) {
+    view.promptForAction();
 
-    if (action == Action.PLAY) {
+    if (view.isPlay()) {
       game.newGame(visitor);
-    } else if (action == Action.HIT) {
+    } else if (view.isHit()) {
       game.hit();
-    } else if (action == Action.STAND) {
+    } else if (view.isStand()) {
       game.stand();
     }
 
-    return action != Action.QUIT;
+    return !view.isQuit();
   }
 
   @Override
