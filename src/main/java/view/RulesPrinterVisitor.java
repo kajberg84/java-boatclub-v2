@@ -5,6 +5,9 @@ import model.rules.HitStrategy;
 import model.rules.NewGameStrategy;
 import model.rules.WinStrategy;
 
+/**
+ * A concrete rules visitor.
+ */
 public class RulesPrinterVisitor implements RulesVisitor {
 
   @Override
