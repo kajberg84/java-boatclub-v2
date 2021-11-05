@@ -3,7 +3,7 @@ package view;
 /**
  * Implements an English console view.
  */
-public class EnglishView implements View {
+public class EnglishView extends BaseView {
 
   /**
    * Shows a welcome message.
@@ -17,46 +17,28 @@ public class EnglishView implements View {
     System.out.println("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
   }
 
-  /**
-   * Returns pressed characters from the keyboard.
+  // /**
+  //  * Returns an action.
 
-   * @return The pressed character.
-   */
-  public int getInput() {
-    try {
-      int c = System.in.read();
-      while (c == '\r' || c == '\n') {
-        c = System.in.read();
-      }
-      return c;
-    } catch (java.io.IOException e) {
-      System.out.println("" + e);
-      return 0;
-    }
-  }
+  //  * @return The action represented by a pressed character.
+  //  */
+  // public Action promptForAction() {
+  //   int input = getInput();
 
-  /**
-   * Returns an action.
-
-   * @return The action represented by a pressed character.
-   */
-  public Action promptForAction() {
-    int input = getInput();
-
-    switch (input) {
-      case('p'):
-        return Action.PLAY;
-      case('h'):
-        return Action.HIT;
-      case('s'):
-        return Action.STAND;
-      case('q'):
-        return Action.QUIT;
-      default:
-        break;
-    }
-    return Action.None;
-  }
+  //   switch (input) {
+  //     case('p'):
+  //       return Action.PLAY;
+  //     case('h'):
+  //       return Action.HIT;
+  //     case('s'):
+  //       return Action.STAND;
+  //     case('q'):
+  //       return Action.QUIT;
+  //     default:
+  //       break;
+  //   }
+  //   return Action.None;
+  // }
 
   public void displayCard(model.Card card) {
     System.out.println("" + card.getValue() + " of " + card.getColor());

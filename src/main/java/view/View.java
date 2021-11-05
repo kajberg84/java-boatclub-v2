@@ -5,35 +5,21 @@ package view;
  */
 public interface View {
 
-  /**
-   * Represents an action.
-   */
-  public enum Action {
-    PLAY,
-    HIT,
-    STAND,
-    QUIT,
-    None;
-  }
+  // /**
+  //  * Represents an action.
+  //  */
+  // public enum Action {
+  //   PLAY,
+  //   HIT,
+  //   STAND,
+  //   QUIT,
+  //   None;
+  // }
 
   /**
    * Shows a welcome message.
    */
   void displayWelcomeMessage();
-
-  /**
-   * Returns pressed characters from the keyboard.
-
-   * @return The pressed character.
-   */
-  int getInput();
-
-  /**
-   * Returns an action.
-
-   * @return The action represented by a pressed character.
-   */
-  Action promptForAction();
 
   /**
    * Displays a card.

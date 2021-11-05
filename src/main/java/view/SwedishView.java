@@ -37,29 +37,6 @@ public class SwedishView implements View {
   }
 
   /**
-   * Returns an action.
-
-   * @return The action represented by a pressed character.
-   */
-  public Action promptForAction() {
-    int input = getInput();
-
-    switch (input) {
-      case('p'):
-        return Action.PLAY;
-      case('h'):
-        return Action.HIT;
-      case('s'):
-        return Action.STAND;
-      case('q'):
-        return Action.QUIT;
-      default:
-        break;
-    }
-    return Action.None;
-  }
-
-  /**
    * Displays a card.
 
    * @param card The card to display.

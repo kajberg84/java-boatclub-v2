@@ -3,26 +3,26 @@ package controller;
 import model.Game;
 import model.NewCardObserver;
 import model.RulesVisitor;
+import view.BaseView.Action;
+import view.BaseView;
 import view.RulesPrinterVisitor;
-import view.View;
-import view.View.Action;
 
 
 /**
  * Scenario controller for playing the game.
  */
 public class Player implements NewCardObserver {
-  View view;
+  BaseView view;
   Game game;
   RulesVisitor visitor = new RulesPrinterVisitor();
 
   /**
    * Constructor that creates a player controller instance with a view and game facade.
 
-   * @param ui The view.
+   * @param v The view.
    * @param g The game facade.
    */
-  public Player(View ui, Game g) {
+  public Player(BaseView ui, Game g) {
     view = ui;
     game = g;
     game.addSubscriber(this);
@@ -41,7 +41,7 @@ public class Player implements NewCardObserver {
     return userAction(game, view);
   }
 
-  private boolean userAction(Game game, View view) {
+  private boolean userAction(Game game, BaseView view) {
     Action action = view.promptForAction();
 
     if (action == Action.PLAY) {
