@@ -5,7 +5,7 @@ import model.Player;
 /**
  * Rule interface that encapsulates when a player (the dealer) should take more cards.
  */
-public interface HitStrategy {
+public interface HitStrategy extends RulesElement {
   /**
    * Checks if the player (dealer) should take more cards.
 
