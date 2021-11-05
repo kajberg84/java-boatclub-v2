@@ -3,6 +3,9 @@ package model.rules;
 import model.Player;
 import model.RulesVisitor;
 
+/**
+ * Represents the basic hit strategy.
+ */
 public class BasicHitStrategy implements HitStrategy {
   private static final int hitLimit = 17;
 
