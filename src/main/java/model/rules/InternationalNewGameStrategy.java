@@ -18,4 +18,10 @@ class InternationalNewGameStrategy implements NewGameStrategy {
   public void accept(RulesVisitor visitor) {
     visitor.visit(this);
   }
+
+  @Override
+  public String getRuleName() {
+    String name = "International New Game";
+    return name;
+  }
 }

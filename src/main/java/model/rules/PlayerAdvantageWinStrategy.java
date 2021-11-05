@@ -23,4 +23,10 @@ public class PlayerAdvantageWinStrategy implements WinStrategy {
   public void accept(RulesVisitor visitor) {
     visitor.visit(this);
   }
+
+  @Override
+  public String getRuleName() {
+    String name = "Player Advantage";
+    return name;
+  }
 }

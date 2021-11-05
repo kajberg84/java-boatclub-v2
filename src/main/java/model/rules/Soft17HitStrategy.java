@@ -36,4 +36,10 @@ public class Soft17HitStrategy implements HitStrategy {
   public void accept(RulesVisitor visitor) {
     visitor.visit(this);
   }
+
+  @Override
+  public String getRuleName() {
+    String name = "Soft 17";
+    return name;
+  }
 }

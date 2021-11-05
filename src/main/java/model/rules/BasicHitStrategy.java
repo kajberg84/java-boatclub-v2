@@ -14,4 +14,10 @@ class BasicHitStrategy implements HitStrategy {
   public void accept(RulesVisitor visitor) {
     visitor.visit(this);
   }
+
+  @Override
+  public String getRuleName() {
+    String name = "Basic Hit";
+    return name;
+  }
 }
