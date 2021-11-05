@@ -1,9 +1,12 @@
 package view;
 
 import model.RulesVisitor;
-import model.rules.HitStrategy;
-import model.rules.NewGameStrategy;
-import model.rules.WinStrategy;
+import model.rules.AmericanNewGameStrategy;
+import model.rules.BasicHitStrategy;
+import model.rules.DealerAdvantageWinStrategy;
+import model.rules.InternationalNewGameStrategy;
+import model.rules.PlayerAdvantageWinStrategy;
+import model.rules.Soft17HitStrategy;
 
 /**
  * A concrete rules visitor.
@@ -11,17 +14,36 @@ import model.rules.WinStrategy;
 public class RulesPrinterVisitor implements RulesVisitor {
 
   @Override
-  public void visit(HitStrategy hitStrategy) {
-    System.out.println("Applied hit rule: " + hitStrategy.getRuleName());
+  public void visit(BasicHitStrategy basicHitStrategy) {
+    System.out.println("Regular rules for dealer.");
   }
 
   @Override
-  public void visit(NewGameStrategy newGameStrategy) {
-    System.out.println("Applied new game rule: " + newGameStrategy.getRuleName());
+  public void visit(Soft17HitStrategy soft17HitStrategy) {
+    System.out.println("Dealer hits on soft 17.");
   }
 
   @Override
-  public void visit(WinStrategy winStrategy) {
-    System.out.println("Applied win rule: " + winStrategy.getRuleName());
+  public void visit(InternationalNewGameStrategy internationalNewGameStrategy) {
+    System.out.println("Dealer gets one card and player gets two cards.");
+    
+  }
+
+  @Override
+  public void visit(AmericanNewGameStrategy americanNewGameStrategy) {
+    System.out.println("Dealer gets two cards (one hidden and one visible) and player gets two cards.");
+    
+  }
+
+  @Override
+  public void visit(DealerAdvantageWinStrategy dealerAdvantageWinStrategy) {
+    System.out.println("Dealer wins on equal score.");
+    
+  }
+
+  @Override
+  public void visit(PlayerAdvantageWinStrategy playerAdvantageWinStrategy) {
+    System.out.println("Player wins on equal score.");
+    
   }
 }
