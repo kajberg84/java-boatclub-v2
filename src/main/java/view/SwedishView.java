@@ -3,7 +3,7 @@ package view;
 /**
  * Implements a Swedish console view.
  */
-public class SwedishView implements View {
+public class SwedishView extends BaseView {
 
   /**
    * Shows a welcome message.
