@@ -14,6 +14,4 @@ public interface HitStrategy extends RulesElement {
    * @return True if the rule decided the player should take another card.
    */
   boolean doHit(Player dealer);
-  
-  String getRuleName();
 }
