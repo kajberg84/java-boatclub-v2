@@ -1,24 +1,29 @@
 package view;
 
+/**
+ * Represents a view with common base methods.
+ */
 public abstract class BaseView implements View {
 
   /**
    * Represents an action.
    */
-  public enum Action {
+  private enum Action {
     PLAY,
     HIT,
     STAND,
     QUIT,
     None;
   }
+
+  private Action action;
   
   /**
    * Returns pressed characters from the keyboard.
 
    * @return The pressed character.
    */
-  public int getInput() {
+  protected int getInput() {
     try {
       int c = System.in.read();
       while (c == '\r' || c == '\n') {
@@ -29,28 +34,47 @@ public abstract class BaseView implements View {
       System.out.println("" + e);
       return 0;
     }
-  };
+  }
 
   /**
    * Returns an action.
 
    * @return The action represented by a pressed character.
    */
-  public Action promptForAction() {
+  public void promptForAction() {
     int input = getInput();
 
     switch (input) {
       case('p'):
-        return Action.PLAY;
+        action = Action.PLAY;
+        return;
       case('h'):
-        return Action.HIT;
+        action = Action.HIT;
+        return;
       case('s'):
-        return Action.STAND;
+        action = Action.STAND;
+        return;
       case('q'):
-        return Action.QUIT;
+        action = Action.QUIT;
+        return;
       default:
         break;
     }
-    return Action.None;
+    action = Action.None;
+  }
+
+  public boolean isPlay() {
+    return action == Action.PLAY;
+  }
+
+  public boolean isHit() {
+    return action == Action.HIT;
+  }
+
+  public boolean isStand() {
+    return action == Action.STAND;
+  }
+  public boolean isQuit() {
+    return action == Action.QUIT;
   }
 }

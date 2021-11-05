@@ -3,9 +3,8 @@ package controller;
 import model.Game;
 import model.NewCardObserver;
 import model.RulesVisitor;
-import view.BaseView.Action;
 import view.BaseView;
-import view.RulesPrinterVisitor;
+import view.EnglishRulesPrinterVisitor;
 
 
 /**
@@ -14,17 +13,18 @@ import view.RulesPrinterVisitor;
 public class Player implements NewCardObserver {
   BaseView view;
   Game game;
-  RulesVisitor visitor = new RulesPrinterVisitor();
+  RulesVisitor visitor;
 
   /**
    * Constructor that creates a player controller instance with a view and game facade.
 
-   * @param v The view.
+   * @param ui The view.
    * @param g The game facade.
    */
-  public Player(BaseView ui, Game g) {
-    view = ui;
-    game = g;
+  public Player(BaseView view, Game game, RulesVisitor visitor) {
+    this.view = view;
+    this.game = game;
+    this.visitor = visitor;
     game.addSubscriber(this);
   }
 
@@ -42,17 +42,17 @@ public class Player implements NewCardObserver {
   }
 
   private boolean userAction(Game game, BaseView view) {
-    Action action = view.promptForAction();
+    view.promptForAction();
 
-    if (action == Action.PLAY) {
+    if (view.isPlay()) {
       game.newGame(visitor);
-    } else if (action == Action.HIT) {
+    } else if (view.isHit()) {
       game.hit();
-    } else if (action == Action.STAND) {
+    } else if (view.isStand()) {
       game.stand();
     }
 
-    return action != Action.QUIT;
+    return !view.isQuit();
   }
 
   @Override
