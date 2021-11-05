@@ -23,7 +23,7 @@ public abstract class BaseView implements View {
 
    * @return The pressed character.
    */
-  protected int getInput() {
+  private int getInput() {
     try {
       int c = System.in.read();
       while (c == '\r' || c == '\n') {
@@ -38,8 +38,6 @@ public abstract class BaseView implements View {
 
   /**
    * Returns an action.
-
-   * @return The action represented by a pressed character.
    */
   public void promptForAction() {
     int input = getInput();
@@ -74,6 +72,7 @@ public abstract class BaseView implements View {
   public boolean isStand() {
     return action == Action.STAND;
   }
+
   public boolean isQuit() {
     return action == Action.QUIT;
   }

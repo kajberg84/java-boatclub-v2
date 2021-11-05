@@ -4,22 +4,22 @@ import model.Game;
 import model.NewCardObserver;
 import model.RulesVisitor;
 import view.BaseView;
-import view.EnglishRulesPrinterVisitor;
 
 
 /**
  * Scenario controller for playing the game.
  */
 public class Player implements NewCardObserver {
-  BaseView view;
-  Game game;
-  RulesVisitor visitor;
+  private BaseView view;
+  private Game game;
+  private RulesVisitor visitor;
 
   /**
    * Constructor that creates a player controller instance with a view and game facade.
 
-   * @param ui The view.
-   * @param g The game facade.
+   * @param view The view.
+   * @param game The game facade.
+   * @param visitor The rules visitor.
    */
   public Player(BaseView view, Game game, RulesVisitor visitor) {
     this.view = view;
