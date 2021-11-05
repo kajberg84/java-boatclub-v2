@@ -11,7 +11,7 @@ import model.rules.Soft17HitStrategy;
 /**
  * A concrete rules visitor.
  */
-public class RulesPrinterVisitor implements RulesVisitor {
+public class EnglishRulesPrinterVisitor implements RulesVisitor {
 
   @Override
   public void visit(BasicHitStrategy basicHitStrategy) {
@@ -26,24 +26,20 @@ public class RulesPrinterVisitor implements RulesVisitor {
   @Override
   public void visit(InternationalNewGameStrategy internationalNewGameStrategy) {
     System.out.println("Dealer gets one card and player gets two cards.");
-    
   }
 
   @Override
   public void visit(AmericanNewGameStrategy americanNewGameStrategy) {
     System.out.println("Dealer gets two cards (one hidden and one visible) and player gets two cards.");
-    
   }
 
   @Override
   public void visit(DealerAdvantageWinStrategy dealerAdvantageWinStrategy) {
     System.out.println("Dealer wins on equal score.");
-    
   }
 
   @Override
   public void visit(PlayerAdvantageWinStrategy playerAdvantageWinStrategy) {
     System.out.println("Player wins on equal score.");
-    
   }
 }
