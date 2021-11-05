@@ -9,16 +9,16 @@ public class RulesPrinterVisitor implements RulesVisitor {
 
   @Override
   public void visit(HitStrategy hitStrategy) {
-    System.out.println("Applied hit rule: ");
+    System.out.println("Applied hit rule: " + hitStrategy.getRuleName());
   }
 
   @Override
   public void visit(NewGameStrategy newGameStrategy) {
-    System.out.println("Applied new game rule: ");
+    System.out.println("Applied new game rule: " + newGameStrategy.getRuleName());
   }
 
   @Override
   public void visit(WinStrategy winStrategy) {
-    System.out.println("Applied win rule: ");
+    System.out.println("Applied win rule: " + winStrategy.getRuleName());
   }
 }
