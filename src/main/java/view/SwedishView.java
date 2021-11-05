@@ -19,24 +19,6 @@ public class SwedishView implements View {
   }
 
   /**
-   * Returns pressed characters from the keyboard.
-
-   * @return The pressed character.
-   */
-  public int getInput() {
-    try {
-      int c = System.in.read();
-      while (c == '\r' || c == '\n') {
-        c = System.in.read();
-      }
-      return c;
-    } catch (java.io.IOException e) {
-      System.out.println("" + e);
-      return 0;
-    }
-  }
-
-  /**
    * Displays a card.
 
    * @param card The card to display.
