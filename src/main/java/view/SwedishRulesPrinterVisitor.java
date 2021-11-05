@@ -8,6 +8,9 @@ import model.rules.InternationalNewGameStrategy;
 import model.rules.PlayerAdvantageWinStrategy;
 import model.rules.Soft17HitStrategy;
 
+/**
+ * A concrete rules visitor printing in Swedish.
+ */
 public class SwedishRulesPrinterVisitor implements RulesVisitor {
 
   @Override

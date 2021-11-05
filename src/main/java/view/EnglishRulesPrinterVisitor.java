@@ -9,7 +9,7 @@ import model.rules.PlayerAdvantageWinStrategy;
 import model.rules.Soft17HitStrategy;
 
 /**
- * A concrete rules visitor.
+ * A concrete rules visitor printing in English.
  */
 public class EnglishRulesPrinterVisitor implements RulesVisitor {
 
