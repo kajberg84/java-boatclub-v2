@@ -16,10 +16,18 @@ public class Game {
     player = new Player();
   }
 
+  public void addSubscriber(NewCardObserver subscriber) {
+    dealer.addSubscriber(subscriber);
+  }
+
+  public void removeSubscriber(NewCardObserver subscriber) {
+    dealer.removeSubscriber(subscriber);
+  }
+
   /**
    * Checks if the game has ended.
 
-   * @return true if the game has ended.
+   * @return True if the game has ended.
    */
   public boolean isGameOver() {
     return dealer.isGameOver();
@@ -35,7 +43,7 @@ public class Game {
   }
 
   /**
-   * Stars a new game.
+   * Starts a new game.
 
    * @return True if a new game could be started.
    */
@@ -58,8 +66,7 @@ public class Game {
    * @return True if the dealer has the initiaive.
    */
   public boolean stand() {
-    // TODO: implement me
-    return false;
+    return dealer.stand();
   }
 
   /**
@@ -74,7 +81,7 @@ public class Game {
   /**
    * Gets the cards currently in the player's hand.
 
-   * @return The palyer's cards.
+   * @return The player's cards.
    */
   public Iterable<Card> getPlayerHand() {
     return player.getHand();
@@ -83,7 +90,7 @@ public class Game {
   /**
    * Returns the score of the dealer's hand.
 
-   * @return the score.
+   * @return The score.
    */
   public int getDealerScore() {
     return dealer.calcScore();
@@ -92,10 +99,9 @@ public class Game {
   /**
    * Returns the score of the player's hand.
 
-   * @return the score.
+   * @return The score.
    */
   public int getPlayerScore() {
     return player.calcScore();
   }
-
 }

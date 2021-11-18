@@ -25,7 +25,7 @@ public class Player {
   }
 
   /**
-   * Returns the cards in thand.
+   * Returns the cards in the hand.
 
    * @return the cards in the Player's hand
    */

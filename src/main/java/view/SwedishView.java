@@ -13,15 +13,15 @@ public class SwedishView implements View {
       System.out.print("\n");
     }
 
-    System.out.println("Hej Black Jack Världen");
+    System.out.println("Hej Black Jack världen");
     System.out.println("----------------------");
-    System.out.println("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
+    System.out.println("Skriv 'p' för att spela, 'h' för nytt kort, 's' för att stanna eller 'q' för att avsluta\n");
   }
 
   /**
    * Returns pressed characters from the keyboard.
 
-   * @return the pressed character.
+   * @return The pressed character.
    */
   public int getInput() {
     try {
@@ -34,6 +34,29 @@ public class SwedishView implements View {
       System.out.println("" + e);
       return 0;
     }
+  }
+
+  /**
+   * Returns an action.
+
+   * @return The action represented by a pressed character.
+   */
+  public Action promptForAction() {
+    int input = getInput();
+
+    switch (input) {
+      case('p'):
+        return Action.PLAY;
+      case('h'):
+        return Action.HIT;
+      case('s'):
+        return Action.STAND;
+      case('q'):
+        return Action.QUIT;
+      default:
+        break;
+    }
+    return Action.None;
   }
 
   /**

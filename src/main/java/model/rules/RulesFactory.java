@@ -11,15 +11,27 @@ public class RulesFactory {
    * @return The rule to use
    */
   public HitStrategy getHitRule() {
-    return new BasicHitStrategy();
+    return new Soft17HitStrategy();
+    // return new BasicHitStrategy();
   }
 
   /**
-   * Crates the rule to use when starting a new game.
+   * Creates the rule to use when starting a new game.
 
    * @return The rule to use.
    */
   public NewGameStrategy getNewGameRule() {
-    return new AmericanNewGameStrategy();
+    return new InternationalNewGameStrategy();
+    // return new AmericanNewGameStrategy();
+  }
+
+  /**
+   * Creates the rule to use for deciding the winner.
+
+   * @return The rule to use.
+   */
+  public WinStrategy getWinRule() {
+    return new DealerAdvantageWinStrategy();
+    // return new PlayerAdvantageWinStrategy();
   }
 }

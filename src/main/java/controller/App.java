@@ -2,6 +2,7 @@ package controller;
 
 import model.Game;
 import view.EnglishView;
+// import view.SwedishView;
 import view.View;
 
 /**
@@ -14,12 +15,14 @@ public class App {
   * @param args Not used.
   */
   public static void main(String[] args) {
-
     Game g = new Game();
     View v = new EnglishView(); // new SwedishView();
-    Player ctrl = new Player();
+    // View v = new SwedishView();
+    Player ctrl = new Player(v, g);
 
-    while (ctrl.play(g, v)) {
+    v.displayWelcomeMessage();
+    
+    while (ctrl.play()) {
 
     }
   }

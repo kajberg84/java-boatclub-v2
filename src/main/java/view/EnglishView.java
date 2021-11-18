@@ -1,7 +1,7 @@
 package view;
 
 /**
- * Implements an english console view.
+ * Implements an English console view.
  */
 public class EnglishView implements View {
 
@@ -13,13 +13,14 @@ public class EnglishView implements View {
       System.out.print("\n");
     }
     System.out.println("Hello Black Jack World");
+    System.out.println("----------------------");
     System.out.println("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
   }
 
   /**
    * Returns pressed characters from the keyboard.
 
-   * @return the pressed character.
+   * @return The pressed character.
    */
   public int getInput() {
     try {
@@ -32,6 +33,29 @@ public class EnglishView implements View {
       System.out.println("" + e);
       return 0;
     }
+  }
+
+  /**
+   * Returns an action.
+
+   * @return The action represented by a pressed character.
+   */
+  public Action promptForAction() {
+    int input = getInput();
+
+    switch (input) {
+      case('p'):
+        return Action.PLAY;
+      case('h'):
+        return Action.HIT;
+      case('s'):
+        return Action.STAND;
+      case('q'):
+        return Action.QUIT;
+      default:
+        break;
+    }
+    return Action.None;
   }
 
   public void displayCard(model.Card card) {
@@ -67,6 +91,5 @@ public class EnglishView implements View {
     } else {
       System.out.println("You Won!");
     }
-
   }
 }
