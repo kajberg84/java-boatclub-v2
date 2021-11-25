@@ -6,7 +6,7 @@ import model.Player;
 /**
  * Rule interface that encapsulates who should win.
  */
-public interface WinStrategy {
+public interface WinStrategy extends RulesElement {
   final int maxScore = 21;
 
   /**

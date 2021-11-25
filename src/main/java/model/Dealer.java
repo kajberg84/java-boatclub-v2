@@ -3,13 +3,14 @@ package model;
 import java.util.ArrayList;
 import model.rules.HitStrategy;
 import model.rules.NewGameStrategy;
+import model.rules.RulesElement;
 import model.rules.RulesFactory;
 import model.rules.WinStrategy;
 
 /**
  * Represents a dealer player that handles the deck of cards and runs the game using rules.
  */
-public class Dealer extends Player {
+public class Dealer extends Player implements RulesElement {
 
   private Deck deck;
   private NewGameStrategy newGameRule;
@@ -122,5 +123,12 @@ public class Dealer extends Player {
       return true;
     }
     return false;
+  }
+
+  @Override
+  public void accept(RulesVisitor visitor) {
+    newGameRule.accept(visitor);
+    hitRule.accept(visitor);
+    winRule.accept(visitor);
   }
 }
